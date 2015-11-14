@@ -13,7 +13,7 @@ configFile.withReader {
 def ENV = System.getenv("BUILD_NUMBER") ?: 0
 
 if (ENV != 0) {
-    version =+ "${config.mc_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: "local"}"
+    version =+ "${config.mc_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
 } else {
     version = "${config.mc_version}-${config.mod_version}.local"
 }
