@@ -27,7 +27,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
     modid = LibIlly.MOD_ID,
     name = LibIlly.MOD_NAME,
     version = LibIlly.VERSION,
-    acceptedMinecraftVersions = "@MCVERSION@",
+    acceptedMinecraftVersions = "1.8",
     dependencies = "required-after:Forge@[11.14.4,)"
     )
 public class LibIlly {
