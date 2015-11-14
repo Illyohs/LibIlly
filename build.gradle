@@ -10,10 +10,16 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
+task buildInfo {
+    def cmd = "git rev-parse --short HEAD"
+    def proc = cmd.execute()
+    ext.sha = proc.text.trim()
+}
+
 def ENV = System.getenv("BUILD_NUMBER") ?: 0
 
 if (ENV != 0) {
-    version =+ "${config.mc_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
+    version =+ "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}"
 } else {
     version = "${config.mc_version}-${config.mod_version}.local"
 }
