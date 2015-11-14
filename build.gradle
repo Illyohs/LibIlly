@@ -10,12 +10,14 @@ configFile.withReader {
     project.ext.config = new ConfigSlurper().parse prop
 }
 
-if (System.getenv(BUILD_NUMBER)) {
-    version =+ "${config.mc_version}-${config.mod_version}.${System.getenv(BUILD_NUMBER)}"
+def ENV = System.getenv("BUILD_NUMBER") ?: 0
+
+if (ENV != 0) {
+    version =+ "${config.mc_version}-${config.mod_version}.${System.getenv("BUILD_NUMBER") ?: "local"}"
 } else {
-    version =+ "${config.mc_version}-${config.mod_version}.local"
+    version = "${config.mc_version}-${config.mod_version}.local"
 }
-version = "${config.mc_version}-${config.mod_version}"
+//version = "${config.mc_version}-${config.mod_version}"
 group= "${config.group}"
 archivesBaseName = "${config.name}"
 
@@ -26,7 +28,7 @@ minecraft {
 	version = "${config.mc_version}-${config.forge_version}"
 
 
-    replaceln "LibIlly.java"
+    replaceIn "LibIlly.java"
     replace '@VERSION@', project.version
 }
 
@@ -43,8 +45,19 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+    
+    task deobfJar(type: Jar) {
+        from sourceSets.main.output
+        classifier = 'deobfJar'
+    }
+    
+    artifacts {
+        archives deobfJar
+    }
 
 }
+
+
 
 repositories {
     mavenCentral()
