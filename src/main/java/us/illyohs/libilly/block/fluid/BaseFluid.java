@@ -16,34 +16,26 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly.block;
+package us.illyohs.libilly.block.fluid;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 
-public class BaseBlock extends Block {
+public class BaseFluid extends Fluid {
     
-    /**
-     * 
-     * @param material
-     * @param name
-     * @param hardness
-     * @param resistance
-     * @param light
-     * @param tick
-     * @param isBlockAir
-     * @param tab
-     */
-    public BaseBlock(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
-        super(material);
-        this.setUnlocalizedName(name);
-        this.setLightLevel(light);
-        this.setTickRandomly(tick);
-        this.setCreativeTab(tab);
-        this.setHardness(hardness);
-        this.setResistance(resistance);
-//        this.set
+    public BaseFluid(String name, ResourceLocation still, ResourceLocation flowing) {
+        super(name, still, flowing);
+        
+    }
+    
+    public BaseFluid(String name, ResourceLocation still, ResourceLocation flowing, int light, int density, int temp, int viscosity, boolean isGas) {
+        super(name, still, flowing);
+        this.setLuminosity(light);
+        this.setDensity(density);
+        this.setTemperature(temp);
+        this.setViscosity(viscosity);
+        this.setGaseous(isGas);
+        
     }
 
 }

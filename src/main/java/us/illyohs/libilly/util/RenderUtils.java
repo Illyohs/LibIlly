@@ -25,8 +25,6 @@
  */
 package us.illyohs.libilly.util;
 
-import java.awt.Color;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
