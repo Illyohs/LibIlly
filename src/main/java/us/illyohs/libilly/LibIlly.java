@@ -34,7 +34,7 @@ public class LibIlly {
 
     public static final String MOD_ID   = "LibIlly";
     public static final String MOD_NAME = "LibIlly";
-    public static final String VERSION  = "@VERSION";
+    public static final String VERSION  = "@VERSION@";
     public static final String UPDOOTURL = "";
 
     public void preInit(FMLPreInitializationEvent event) {
