@@ -56,8 +56,14 @@ processResources {
         classifier = 'deobfJar'
     }
     
+    task allJar(type: Jar) {
+        from sourceSets.main.allJava
+        classifier = 'source'
+    }
+    
     artifacts {
         archives deobfJar
+        archives allJar
     }
 
 }
