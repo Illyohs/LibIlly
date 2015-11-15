@@ -17,8 +17,8 @@ task buildInfo {
 }
 
 
-if (!project.hasProperty("local")) {
-    version = "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}"
+if (System.getenv('BUILD_NUMBER') != null) {
+    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
 } else {
     version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
 }
@@ -51,24 +51,31 @@ processResources {
         exclude 'mcmod.info'
     }
     
-    task deobfJar(type: Jar) {
-        from sourceSets.main.output
-        classifier = 'deobf'
-    }
+
     
-    task allJar(type: Jar) {
-        from sourceSets.main.allJava
-        classifier = 'source'
-    }
+//    task allJar(type: Jar) {
+//        from sourceSets.main.allJava
+//        classifier = 'source'
+//    }
     
-    artifacts {
-        archives deobfJar
-        archives allJar
-    }
+
 
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
 
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+    archives deobfJar
+    archives sourcesJar
+}
 
 repositories {
     mavenCentral()
