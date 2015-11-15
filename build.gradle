@@ -16,12 +16,11 @@ task buildInfo {
     ext.sha = proc.text.trim()
 }
 
-def ENV = System.getenv("BUILD_NUMBER") ?: 0
 
-if (ENV != 0) {
-    version =+ "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}"
+if (!project.hasProperty("local")) {
+    version = "${config.mc_version}-${config.mod_version}.${project.buildInfo.sha}"
 } else {
-    version = "${config.mc_version}-${config.mod_version}.local"
+    version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
 }
 //version = "${config.mc_version}-${config.mod_version}"
 group= "${config.group}"
