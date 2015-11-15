@@ -53,7 +53,7 @@ processResources {
     
     task deobfJar(type: Jar) {
         from sourceSets.main.output
-        classifier = 'deobfJar'
+        classifier = 'deobf'
     }
     
     task allJar(type: Jar) {
