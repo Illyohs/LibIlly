@@ -18,15 +18,20 @@
  */
 package us.illyohs.libilly.internal;
 
-public class PosExecuterHandler {
-
-    /**
-     * 
-     */
-    public PosExecuterHandler() {
-        // TODO Auto-generated constructor stub
+public class ExecuterHandler {
+    
+    public static ExecuterHandler instance = null;
+    
+ 
+    public ExecuterHandler() {
+    }
+    
+    public ExecuterHandler getInstance() {
+        if (instance == null) {
+            instance = new ExecuterHandler();
+        }
+        return instance;       
     }
     
     
-
 }
