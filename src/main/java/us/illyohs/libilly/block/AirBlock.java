@@ -41,6 +41,11 @@ public class AirBlock extends BaseBlock {
             boolean isBlockAir, CreativeTabs tab) {
         super(material, name, hardness, resistance, light, tick, tab);
     }
+
+    public AirBlock(Material material, String name, float hardness, float resistance, float light, boolean tick,
+            boolean isBlockAir) {
+        super(material, name, hardness, resistance, light, tick);
+    }
     
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
         return null;
