@@ -22,16 +22,27 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class BaseItem extends Item {
-    
+
     /**
-     * 
+     *
      * @param name
+     * @param hasSubtypes
      * @param tabs
      */
-    public BaseItem(String name, CreativeTabs tabs) {
+    public BaseItem(String name, boolean hasSubtypes, CreativeTabs tabs) {
         this.setUnlocalizedName(name);
         this.setHasSubtypes(hasSubtypes);
         this.setCreativeTab(tabs);
+    }
+
+    /**
+     *
+     * @param name
+     * @param hasSubtypes
+     */
+    public BaseItem(String name, boolean hasSubtypes) {
+        this.setUnlocalizedName(name);
+        this.setHasSubtypes(hasSubtypes);
     }
 
 }

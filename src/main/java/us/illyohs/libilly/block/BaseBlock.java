@@ -32,7 +32,6 @@ public class BaseBlock extends Block {
      * @param resistance
      * @param light
      * @param tick
-     * @param isBlockAir
      * @param tab
      */
     public BaseBlock(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
@@ -43,7 +42,24 @@ public class BaseBlock extends Block {
         this.setCreativeTab(tab);
         this.setHardness(hardness);
         this.setResistance(resistance);
-//        this.set
+    }
+
+    /**
+     *
+     * @param material
+     * @param name
+     * @param hardness
+     * @param resistance
+     * @param light
+     * @param tick
+     */
+    public BaseBlock(Material material, String name, float hardness, float resistance, float light, boolean tick) {
+        super(material);
+        this.setUnlocalizedName(name);
+        this.setLightLevel(light);
+        this.setTickRandomly(tick);
+        this.setHardness(hardness);
+        this.setResistance(resistance);
     }
 
 }
