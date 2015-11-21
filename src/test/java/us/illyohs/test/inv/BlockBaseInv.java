@@ -6,11 +6,11 @@ import net.minecraft.creativetab.CreativeTabs;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import us.illyohs.libilly.block.BaseBlock;
+import us.illyohs.libilly.block.BlockBase;
 
-public class BlockInv extends BaseBlock implements ITileEntityProvider {
+public class BlockBaseInv extends BlockBase implements ITileEntityProvider {
 
-    public BlockInv(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
+    public BlockBaseInv(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
         super(material, name, hardness, resistance, light, tick, tab);
     }
 

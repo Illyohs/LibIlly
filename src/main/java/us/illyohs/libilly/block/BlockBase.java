@@ -22,7 +22,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BaseBlock extends Block {
+public class BlockBase extends Block {
     
     /**
      * 
@@ -34,7 +34,7 @@ public class BaseBlock extends Block {
      * @param tick
      * @param tab
      */
-    public BaseBlock(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
+    public BlockBase(Material material, String name, float hardness, float resistance, float light, boolean tick, CreativeTabs tab) {
         super(material);
         this.setUnlocalizedName(name);
         this.setLightLevel(light);
@@ -53,7 +53,7 @@ public class BaseBlock extends Block {
      * @param light
      * @param tick
      */
-    public BaseBlock(Material material, String name, float hardness, float resistance, float light, boolean tick) {
+    public BlockBase(Material material, String name, float hardness, float resistance, float light, boolean tick) {
         super(material);
         this.setUnlocalizedName(name);
         this.setLightLevel(light);

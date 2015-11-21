@@ -25,7 +25,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public class AirBlock extends BaseBlock {
+public class AirBlockBase extends BlockBase {
 
     /**
      * @param material
@@ -37,13 +37,13 @@ public class AirBlock extends BaseBlock {
      * @param isBlockAir
      * @param tab
      */
-    public AirBlock(Material material, String name, float hardness, float resistance, float light, boolean tick,
-            boolean isBlockAir, CreativeTabs tab) {
+    public AirBlockBase(Material material, String name, float hardness, float resistance, float light, boolean tick,
+                        boolean isBlockAir, CreativeTabs tab) {
         super(material, name, hardness, resistance, light, tick, tab);
     }
 
-    public AirBlock(Material material, String name, float hardness, float resistance, float light, boolean tick,
-            boolean isBlockAir) {
+    public AirBlockBase(Material material, String name, float hardness, float resistance, float light, boolean tick,
+                        boolean isBlockAir) {
         super(material, name, hardness, resistance, light, tick);
     }
     

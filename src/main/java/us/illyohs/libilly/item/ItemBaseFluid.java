@@ -5,13 +5,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidContainerItem;
-import scala.xml.dtd.impl.Base;
 
 /**
  * Mostly opied from net.minecraftforge.fluids.ItemFluidContainer
  * removed itemID and extended BaseMod
  */
-public class BaseFluidItem extends BaseItem implements IFluidContainerItem {
+public class ItemBaseFluid extends ItemBase implements IFluidContainerItem {
 
     protected int capacity;
 
@@ -22,7 +21,7 @@ public class BaseFluidItem extends BaseItem implements IFluidContainerItem {
      * @param tabs
      * @param capacity
      */
-    public BaseFluidItem(String name,boolean hasSubtypes, CreativeTabs tabs, int capacity) {
+    public ItemBaseFluid(String name, boolean hasSubtypes, CreativeTabs tabs, int capacity) {
         super(name, hasSubtypes, tabs);
         this.capacity = capacity;
     }
@@ -33,7 +32,7 @@ public class BaseFluidItem extends BaseItem implements IFluidContainerItem {
      * @param hasSubtypes
      * @param capacity
      */
-    public BaseFluidItem(String name,boolean hasSubtypes, int capacity) {
+    public ItemBaseFluid(String name, boolean hasSubtypes, int capacity) {
         super(name, hasSubtypes);
         this.capacity = capacity;
         ;
@@ -42,7 +41,7 @@ public class BaseFluidItem extends BaseItem implements IFluidContainerItem {
 
 
 
-    public BaseFluidItem setCapacity(int capacity) {
+    public ItemBaseFluid setCapacity(int capacity) {
         this.capacity = capacity;
         return this;
     }

@@ -16,33 +16,26 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly.item;
+package us.illyohs.libilly.block.fluid;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 
-public class BaseItem extends Item {
-
-    /**
-     *
-     * @param name
-     * @param hasSubtypes
-     * @param tabs
-     */
-    public BaseItem(String name, boolean hasSubtypes, CreativeTabs tabs) {
-        this.setUnlocalizedName(name);
-        this.setHasSubtypes(hasSubtypes);
-        this.setCreativeTab(tabs);
+public class FluidBase extends Fluid {
+    
+    public FluidBase(String name, ResourceLocation still, ResourceLocation flowing) {
+        super(name, still, flowing);
+        
     }
-
-    /**
-     *
-     * @param name
-     * @param hasSubtypes
-     */
-    public BaseItem(String name, boolean hasSubtypes) {
-        this.setUnlocalizedName(name);
-        this.setHasSubtypes(hasSubtypes);
+    
+    public FluidBase(String name, ResourceLocation still, ResourceLocation flowing, int light, int density, int temp, int viscosity, boolean isGas) {
+        super(name, still, flowing);
+        this.setLuminosity(light);
+        this.setDensity(density);
+        this.setTemperature(temp);
+        this.setViscosity(viscosity);
+        this.setGaseous(isGas);
+        
     }
 
 }
