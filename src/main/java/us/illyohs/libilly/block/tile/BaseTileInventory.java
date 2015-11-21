@@ -113,6 +113,7 @@ public class BaseTileInventory extends BaseTile implements IInventory {
 		if (stack != null && stack.stackSize > getInventoryStackLimit()) {
 			stack.stackSize = getInventoryStackLimit();
 		}
+
     }
 
     @Override
