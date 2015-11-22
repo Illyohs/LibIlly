@@ -38,9 +38,19 @@ public class RenderUtils {
         FMLClientHandler.instance().getClient().renderEngine.bindTexture(texture);
     } 
     
-    public static void renderItemsBlocks(Block block, ResourceLocation texture) {
-        Item item = Item.getItemFromBlock(block);
-        FMLClientHandler.instance().getClient().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(texture.getResourceDomain() + ":" + texture.getResourcePath()));
+    public static void renderItems(Object obj, ResourceLocation texture) {
+        if (obj instanceof Block) {
+            Item item = Item.getItemFromBlock((Block) obj);
+            FMLClientHandler.instance().getClient().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(texture.getResourceDomain() + ":" + texture.getResourcePath()));
+
+        } else if (obj instanceof Item) {
+            FMLClientHandler.instance().getClient().getRenderItem().getItemModelMesher().register((Item)obj, 0, new ModelResourceLocation(texture.getResourceDomain() + ":" + texture.getResourcePath()));
+
+        }
+    }
+
+    public static void renderItems() {
+
     }
 
     public static void renderFloatingTexts(String text, int x, int y, int z, boolean shadow) {
