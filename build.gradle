@@ -17,10 +17,15 @@ task buildInfo {
 }
 
 
-if (System.getenv('BUILD_NUMBER') != null) {
+if (System.getenv('BUILD_NUMBER') != null && System.getenv('GIT_BRANCH') == "master") {
     version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
+
+} else if (System.getenv('BUILD_NUMBER') != null && System.getenv('GIT_BRANCH') != "master") {
+    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-${System.getenv('GIT_BRANCH')}"
+
 } else {
     version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
+
 }
 //version = "${config.mc_version}-${config.mod_version}"
 group= "${config.group}"
