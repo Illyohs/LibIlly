@@ -51,12 +51,16 @@ public class RenderUtils {
         FMLClientHandler.instance().getClient().fontRendererObj.drawString(text, x, y, z, shadow);
     }
 
-    public static void renderItem(ItemStack item) {
-        FMLClientHandler.instance().getClient().getRenderItem().renderItemModel(item);
-    }
+//    public static void renderItem(ItemStack item) {
+//        FMLClientHandler.instance().getClient().getRenderItem().
+//    }
     
     public static void renderFloatingTexts(String text, double x, double y, double z, boolean shadow) {
         FMLClientHandler.instance().getClient().fontRendererObj.drawString(text, (int)x, (int)y, (int)z, shadow);
 	}
+    
+    public static void renderQuad() {
+    	
+    }
 
 }

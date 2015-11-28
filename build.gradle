@@ -1,6 +1,22 @@
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }     
+   } 
+   dependencies {
+       classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+                                                                                        }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+
+
+//plugins {
+//    id "net.minecraftforge.gradle.forge" version "2.0.2"
+//}
 
 ext.configFile = file "build.properties"
 
@@ -16,11 +32,19 @@ task buildInfo {
     ext.sha = proc.text.trim()
 }
 
+task gitbranch {
+    def cmd = "git rev-parse --abbrev-ref HEAD"
+    def proc = cmd.execute()
+    ext.branch = proc.text.trim()
+}
 
-if (System.getenv('BUILD_NUMBER') != null) {
+
+if (System.getenv('BUILD_NUMBER') != null && ${project.getbranch.branch} == master) {
     version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
+} else if (System.getenv('BUILD_NUMBER') != null && "${project.gitbranch.branch}" != "master"){
+    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-${project.gitbranch.branch}"
 } else {
-    version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
+    version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}-${project.gitbranch.branch}"
 }
 //version = "${config.mc_version}-${config.mod_version}"
 group= "${config.group}"
@@ -29,7 +53,7 @@ archivesBaseName = "${config.name}"
 minecraft {
 
     runDir = "run"
-    mappings = 'stable_16'
+    mappings = 'snapshot_20151122'
 	version = "${config.mc_version}-${config.forge_version}"
 
 
