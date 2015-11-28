@@ -39,7 +39,7 @@ task gitbranch {
 }
 
 
-if (System.getenv('BUILD_NUMBER') != null && ${project.getbranch.branch} == master) {
+if (System.getenv('BUILD_NUMBER') != null && "${project.gitbranch.branch}" == "master") {
     version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
 } else if (System.getenv('BUILD_NUMBER') != null && "${project.gitbranch.branch}" != "master"){
     version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-${project.gitbranch.branch}"
