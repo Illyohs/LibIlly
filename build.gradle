@@ -39,12 +39,10 @@ task gitbranch {
 }
 
 
-if (System.getenv('BUILD_NUMBER') != null && System.getenv('GIT_BRANCH#*/') == "master") {
-    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
-} else if (System.getenv('BUILD_NUMBER') != null && System.getenv('GIT_BRANCH#*/') != "master"){
-    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-System.getenv('GIT_BRANCH#*/')"
+if (System.getenv('BUILD_NUMBER') != null) {
+    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-1.8.8"
 } else {
-    version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}-${project.gitbranch.branch}"
+    version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
 }
 //version = "${config.mc_version}-${config.mod_version}"
 group= "${config.group}"
