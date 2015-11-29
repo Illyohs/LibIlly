@@ -22,6 +22,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
 public class PosExecuter {
@@ -30,8 +31,10 @@ public class PosExecuter {
     protected int              posX;
     protected int              posY;
     protected int              posZ;
+    protected int              radius;
     protected boolean          isPersistent;
     protected ResourceLocation resource;
+    protected EnumFacing       facing;
 
     /**
      * 
@@ -40,7 +43,7 @@ public class PosExecuter {
     public PosExecuter(String name) {
         this.name = name;
     }
-    
+
     /**
      * @param name
      * @param posX
@@ -49,15 +52,17 @@ public class PosExecuter {
      * @param dorenderer
      * @param isPersistent
      */
-    public PosExecuter(String name, int posX, int posY, int posZ, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+    public PosExecuter(String name, int posX, int posY, int posZ, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
         this.name = name;
         this.posX = posX;
         this.posY = posY;
         this.posZ = posZ;
+        this.radius = radius;
+        this.facing = facing;
         this.isPersistent = isPersistent;
         this.resource = location;
     }
-    
+
     /**
      * 
      * @param name
@@ -66,11 +71,13 @@ public class PosExecuter {
      * @param isPersistent
      * @param location
      */
-    public PosExecuter(String name, BlockPos pos, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+    public PosExecuter(String name, BlockPos pos, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
         this.name = name;
         this.posX = pos.getX();
         this.posY = pos.getY();
         this.posZ = pos.getZ();
+        this.radius = radius;
+        this.facing = facing;
         this.isPersistent = isPersistent;
         this.resource = location;
     }
@@ -122,6 +129,22 @@ public class PosExecuter {
     public void setPosZ(int posZ) {
         this.posZ = posZ;
     }
+    
+    public int getRadius() {
+        return radius;
+    }
+    
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+    
+    public EnumFacing getFacing() {
+        return facing;
+    }
+
+    public void setFacing(EnumFacing facing) {
+        this.facing = facing;
+    }
 
     public boolean isPersistent() {
         return isPersistent;
@@ -130,11 +153,11 @@ public class PosExecuter {
     public void setPersistent(boolean isPersistent) {
         this.isPersistent = isPersistent;
     }
-    
+
     public ResourceLocation getResource() {
         return resource;
     }
-    
+
     public void setResource(ResourceLocation resource) {
         this.resource = resource;
     }
