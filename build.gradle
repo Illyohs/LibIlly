@@ -51,7 +51,7 @@ archivesBaseName = "${config.name}"
 minecraft {
 
     runDir = "run"
-    mappings = 'snapshot_20151122'
+    mappings = "${config.mappings}"
 	version = "${config.mc_version}-${config.forge_version}"
 
 
