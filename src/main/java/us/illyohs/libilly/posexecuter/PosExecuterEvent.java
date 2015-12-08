@@ -16,31 +16,33 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.test.posex;
+package us.illyohs.libilly.posexecuter;
 
-import us.illyohs.libilly.posexecuter.PosExeInfo;
-import us.illyohs.libilly.posexecuter.PosExecuter;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
 
-@PosExeInfo(modId = "TestMod")
-public class TestPosExecuter extends PosExecuter {
-    
+import net.minecraftforge.fml.common.eventhandler.Event;
 
-    public TestPosExecuter(String name, BlockPos pos, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        super(name, pos, radius, facing, dorenderer, isPersistent, location);
-        // TODO Auto-generated constructor stub
+public class PosExecuterEvent extends Event {
+
+    public enum Actions {
+        ACTIVATE, PLACE, DESTROY
     }
 
-    public void executeOnEntityCollied(Entity entity) {
-        EntityPlayer player = (EntityPlayer)entity;
-        if (entity instanceof EntityPlayer) {
-            player.setHealth(4.0f);
-        }
+    public String     modid;
+    public String     name;
+    public int        radius;
+    public BlockPos   pos;
+    public EnumFacing facing;
+    public Actions    actions;
+
+    public PosExecuterEvent(String modid, String name, int radius, BlockPos pos, EnumFacing facing, Actions actions) {
+        this.modid = modid;
+        this.name = name;
+        this.radius = radius;
+        this.pos = pos;
+        this.facing = facing;
+        this.actions = actions;
     }
 
 }

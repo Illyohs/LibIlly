@@ -16,31 +16,15 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.test.posex;
+package us.illyohs.libilly.util;
 
-import us.illyohs.libilly.posexecuter.PosExeInfo;
-import us.illyohs.libilly.posexecuter.PosExecuter;
+public class PosRegisterException extends Exception {
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-
-@PosExeInfo(modId = "TestMod")
-public class TestPosExecuter extends PosExecuter {
-    
-
-    public TestPosExecuter(String name, BlockPos pos, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        super(name, pos, radius, facing, dorenderer, isPersistent, location);
+    /**
+     * @param string
+     */
+    public PosRegisterException(String string) {
         // TODO Auto-generated constructor stub
-    }
-
-    public void executeOnEntityCollied(Entity entity) {
-        EntityPlayer player = (EntityPlayer)entity;
-        if (entity instanceof EntityPlayer) {
-            player.setHealth(4.0f);
-        }
     }
 
 }

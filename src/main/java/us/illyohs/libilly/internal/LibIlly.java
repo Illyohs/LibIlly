@@ -16,7 +16,9 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly;
+package us.illyohs.libilly.internal;
+
+import us.illyohs.libilly.posexecuter.ExecuterHandler;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -36,6 +38,8 @@ public class LibIlly {
     public static final String MOD_NAME = "LibIlly";
     public static final String VERSION  = "@VERSION@";
     public static final String UPDOOTURL = "";
+    
+    ExecuterHandler executerHandler;
 
     public void preInit(FMLPreInitializationEvent event) {
         event.getModMetadata().modId = LibIlly.MOD_ID;
@@ -49,6 +53,7 @@ public class LibIlly {
     }
 
     public void postInit(FMLPostInitializationEvent event) {
+        executerHandler = new ExecuterHandler();
 
     }
 

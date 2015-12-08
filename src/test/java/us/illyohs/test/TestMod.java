@@ -18,15 +18,18 @@
  */
 package us.illyohs.test;
 
+import us.illyohs.libilly.posexecuter.ExecuterHandler;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "TestPosEx")
+@Mod(modid = "TestMod")
 public class TestMod {
     
     public void preInit(FMLPreInitializationEvent event) {
+        ExecuterHandler.getInstance().registerModId("TestMod");
         
     }
     

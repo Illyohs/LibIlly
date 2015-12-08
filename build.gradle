@@ -55,7 +55,7 @@ minecraft {
 	version = "${config.mc_version}-${config.forge_version}"
 
 
-    replaceIn "LibIlly.java"
+    replaceIn "internal/LibIlly.java"
     replace '@VERSION@', project.version
 }
 

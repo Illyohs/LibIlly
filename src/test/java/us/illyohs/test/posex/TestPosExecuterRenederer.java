@@ -18,6 +18,38 @@
  */
 package us.illyohs.test.posex;
 
-public class TestPosExecuterRenederer {
+import us.illyohs.libilly.posexecuter.IExecuterRenderer;
+import us.illyohs.libilly.posexecuter.PosExecuter;
+
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+public class TestPosExecuterRenederer extends PosExecuter implements IExecuterRenderer{
+
+    /**
+     * @param name
+     * @param posX
+     * @param posY
+     * @param posZ
+     * @param radius
+     * @param facing
+     * @param dorenderer
+     * @param isPersistent
+     * @param location
+     */
+    public TestPosExecuterRenederer(String name, int posX, int posY, int posZ, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+        super(name, posX, posY, posZ, radius, facing, dorenderer, isPersistent, location);
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void renderExecuter(double x, double y, double z, int tick) {
+        // TODO Auto-generated method stub
+        
+    }
 
 }
