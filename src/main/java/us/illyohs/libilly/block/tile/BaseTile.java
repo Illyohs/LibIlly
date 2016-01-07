@@ -25,19 +25,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
 public abstract class BaseTile extends TileEntity implements ITickable {
-
-    public abstract void updateTile();
     
     public abstract void readFromModNBT(NBTTagCompound mNBT);
     
     public abstract void writeToModNBT(NBTTagCompound mNBT);
     
     public abstract void onModDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt);
-
-    @Override
-    public void update() {
-        updateTile();
-    }
     
     @Override
     public void readFromNBT(NBTTagCompound tag) {

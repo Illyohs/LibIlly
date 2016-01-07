@@ -29,7 +29,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class TestMod {
     
     public void preInit(FMLPreInitializationEvent event) {
-        ExecuterHandler.getInstance().registerModId("TestMod");
+//        ExecuterHandler.getInstance().registerModId("TestMod");
         
     }
     

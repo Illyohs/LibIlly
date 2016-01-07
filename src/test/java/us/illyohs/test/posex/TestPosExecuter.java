@@ -18,7 +18,7 @@
  */
 package us.illyohs.test.posex;
 
-import us.illyohs.libilly.posexecuter.PosExeInfo;
+//import us.illyohs.libilly.posexecuter.PosExeInfo;
 import us.illyohs.libilly.posexecuter.PosExecuter;
 
 import net.minecraft.entity.Entity;
@@ -27,7 +27,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
-@PosExeInfo(modId = "TestMod")
+//@PosExeInfo(modId = "TestMod")
 public class TestPosExecuter extends PosExecuter {
     
 
