@@ -20,6 +20,7 @@ package us.illyohs.test.posex;
 
 import us.illyohs.libilly.posexecuter.IExecuterRenderer;
 import us.illyohs.libilly.posexecuter.PosExecuter;
+import us.illyohs.libilly.util.ExePos;
 
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
@@ -27,21 +28,19 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class TestPosExecuterRenederer extends PosExecuter implements IExecuterRenderer{
+public class TestPosExecuterRenederer extends PosExecuter implements IExecuterRenderer {
+
 
     /**
-     * @param name
-     * @param posX
-     * @param posY
-     * @param posZ
+     * @param id
+     * @param exePos
      * @param radius
-     * @param facing
      * @param dorenderer
      * @param isPersistent
      * @param location
      */
-    public TestPosExecuterRenederer(String name, int posX, int posY, int posZ, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        super(name, posX, posY, posZ, radius, facing, dorenderer, isPersistent, location);
+    public TestPosExecuterRenederer(String id, ExePos exePos, int radius, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+        super(id, exePos, radius, dorenderer, isPersistent, location);
         // TODO Auto-generated constructor stub
     }
 

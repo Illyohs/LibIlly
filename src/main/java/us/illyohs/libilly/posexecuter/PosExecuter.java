@@ -18,6 +18,8 @@
  */
 package us.illyohs.libilly.posexecuter;
 
+import us.illyohs.libilly.util.ExePos;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,59 +27,36 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
+@Deprecated
 public class PosExecuter {
 
-    protected String           name;
-    protected int              posX;
-    protected int              posY;
-    protected int              posZ;
+    protected String           id;
     protected int              radius;
     protected boolean          isPersistent;
     protected ResourceLocation resource;
-    protected EnumFacing       facing;
+    protected ExePos           exePos;
 
     /**
      * 
-     * @param name
+     * @param id
      */
-    public PosExecuter(String name) {
-        this.name = name;
+    public PosExecuter(String id) {
+        this.id = id;
     }
-
-    /**
-     * @param name
-     * @param posX
-     * @param posY
-     * @param posZ
-     * @param dorenderer
-     * @param isPersistent
-     */
-    public PosExecuter(String name, int posX, int posY, int posZ, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        this.name = name;
-        this.posX = posX;
-        this.posY = posY;
-        this.posZ = posZ;
-        this.radius = radius;
-        this.facing = facing;
-        this.isPersistent = isPersistent;
-        this.resource = location;
-    }
-
+    
     /**
      * 
-     * @param name
-     * @param pos
+     * @param id
+     * @param exePos
+     * @param radius
      * @param dorenderer
      * @param isPersistent
      * @param location
      */
-    public PosExecuter(String name, BlockPos pos, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        this.name = name;
-        this.posX = pos.getX();
-        this.posY = pos.getY();
-        this.posZ = pos.getZ();
+    public PosExecuter(String id, ExePos exePos, int radius, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+        this.id = id;
+        this.exePos = exePos;
         this.radius = radius;
-        this.facing = facing;
         this.isPersistent = isPersistent;
         this.resource = location;
     }
@@ -99,51 +78,27 @@ public class PosExecuter {
     }
 
     public String getName() {
-        return name;
+        return id;
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
-    public void setPosY(int posY) {
-        this.posY = posY;
-    }
-
-    public int getPosZ() {
-        return posZ;
-    }
-
-    public void setPosZ(int posZ) {
-        this.posZ = posZ;
+        this.id = name;
     }
     
+    public ExePos getExePos() {
+        return exePos;
+    }
+    
+    public void setExePos(ExePos exePos) {
+        this.exePos = exePos;
+    }
+
     public int getRadius() {
         return radius;
     }
-    
+
     public void setRadius(int radius) {
         this.radius = radius;
-    }
-    
-    public EnumFacing getFacing() {
-        return facing;
-    }
-
-    public void setFacing(EnumFacing facing) {
-        this.facing = facing;
     }
 
     public boolean isPersistent() {

@@ -16,35 +16,34 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly.posexecuter;
+package us.illyohs.libilly.util;
 
-import java.util.HashMap;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.World;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+public class ExePos {
 
-@Deprecated
-public class ExecuterHandler {
+    BlockPos   blockPos;
+    EnumFacing facing;
+    World      world;
 
-    public static ExecuterHandler  instance;
-    
-    private HashMap<String, PosExecuter> exRege = new HashMap<String, PosExecuter>();
-           
-    public ExecuterHandler() {
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    public static ExecuterHandler getInstance() {
-        if (instance == null) {
-            return new ExecuterHandler();
-        }
-        return instance;
-    }
-
-    public void registerPosExecuter(String modid, PosExecuter executer) {
-        exRege.put(modid, executer);
+    public ExePos(World world, BlockPos pos, EnumFacing facing) {
+        this.world = world;
+        this.blockPos = pos;
+        this.facing = facing;
     }
     
-    
-    
+    public World getWorld() {
+        return world;
+    }
+
+    public BlockPos getBlockPos() {
+        return blockPos;
+    }
+
+    public EnumFacing getFacing() {
+        return facing;
+    }
+
 }

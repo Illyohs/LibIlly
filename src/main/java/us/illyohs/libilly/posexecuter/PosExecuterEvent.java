@@ -18,11 +18,14 @@
  */
 package us.illyohs.libilly.posexecuter;
 
+import us.illyohs.libilly.util.ExePos;
+
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 
 import net.minecraftforge.fml.common.eventhandler.Event;
 
+@Deprecated
 public class PosExecuterEvent extends Event {
 
     public enum Actions {
@@ -32,16 +35,14 @@ public class PosExecuterEvent extends Event {
     public String     modid;
     public String     name;
     public int        radius;
-    public BlockPos   pos;
-    public EnumFacing facing;
+    public ExePos     exePos;
     public Actions    actions;
 
-    public PosExecuterEvent(String modid, String name, int radius, BlockPos pos, EnumFacing facing, Actions actions) {
+    public PosExecuterEvent(String modid, String name, int radius, ExePos pos, EnumFacing facing, Actions actions) {
         this.modid = modid;
         this.name = name;
         this.radius = radius;
-        this.pos = pos;
-        this.facing = facing;
+        this.exePos = pos;
         this.actions = actions;
     }
 

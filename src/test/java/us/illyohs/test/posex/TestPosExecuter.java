@@ -20,6 +20,7 @@ package us.illyohs.test.posex;
 
 //import us.illyohs.libilly.posexecuter.PosExeInfo;
 import us.illyohs.libilly.posexecuter.PosExecuter;
+import us.illyohs.libilly.util.ExePos;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,8 +32,16 @@ import net.minecraft.util.ResourceLocation;
 public class TestPosExecuter extends PosExecuter {
     
 
-    public TestPosExecuter(String name, BlockPos pos, int radius, EnumFacing facing, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
-        super(name, pos, radius, facing, dorenderer, isPersistent, location);
+    /**
+     * @param id
+     * @param exePos
+     * @param radius
+     * @param dorenderer
+     * @param isPersistent
+     * @param location
+     */
+    public TestPosExecuter(String id, ExePos exePos, int radius, boolean dorenderer, boolean isPersistent, ResourceLocation location) {
+        super(id, exePos, radius, dorenderer, isPersistent, location);
         // TODO Auto-generated constructor stub
     }
 

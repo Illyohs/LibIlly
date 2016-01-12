@@ -1,5 +1,5 @@
 /**
- *  Copyright (C) 2015, Anthony Anderson(Illyohs) 
+ *  Copyright (C) 2016, Anthony Anderson(Illyohs) 
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -16,15 +16,9 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly.util;
+package us.illyohs.libilly.multiblock;
 
-public class PosRegisterException extends Exception {
-
-    /**
-     * @param string
-     */
-    public PosRegisterException(String string) {
-        // TODO Auto-generated constructor stub
-    }
+@Deprecated
+public interface IMultiBlockCore {
 
 }
