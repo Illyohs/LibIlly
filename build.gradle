@@ -40,7 +40,7 @@ task gitbranch {
 
 
 if (System.getenv('BUILD_NUMBER') != null) {
-    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}-1.8.9"
+    version = "${config.mc_version}-${config.mod_version}.${System.getenv('BUILD_NUMBER')}"
 } else {
     version = "${config.mc_version}-${config.mod_version}.local.${project.buildInfo.sha}"
 }
