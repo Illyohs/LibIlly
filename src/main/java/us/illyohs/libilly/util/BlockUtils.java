@@ -185,6 +185,12 @@ public class BlockUtils {
         return blockDist;
     }
     
+    public static Block getBlockFromName(String name) {
+        return Block.getBlockFromName(name);
+    }
     
+    public static boolean isBlockSolid(World world, BlockPos pos, EnumFacing face) {
+        return world.getBlockState(pos).getBlock().isBlockSolid(world, pos, face);
+    }
 
 }

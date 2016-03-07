@@ -1,5 +1,5 @@
 /**
- *  Copyright (C) 2015, Anthony Anderson(Illyohs) 
+ *  Copyright (C) 2016, Anthony Anderson(Illyohs) 
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -16,34 +16,24 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-package us.illyohs.libilly.posexecuter;
+package us.illyohs.libilly.internal.handler;
 
-import java.util.HashMap;
+import com.google.common.collect.ImmutableList;
 
-import net.minecraftforge.common.MinecraftForge;
+import us.illyohs.libilly.internal.LibIlly;
+import us.illyohs.libilly.util.BlockUtils;
 
-@Deprecated
-public class ExecuterHandler {
+import net.minecraftforge.fml.common.event.FMLInterModComms.IMCMessage;
 
-    public static ExecuterHandler  instance;
+public class IMCHandler {
     
-    private HashMap<String, PosExecuter> exRege = new HashMap<String, PosExecuter>();
-           
-    public ExecuterHandler() {
-        MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    public static ExecuterHandler getInstance() {
-        if (instance == null) {
-            return new ExecuterHandler();
+    public static void processMessages(ImmutableList<IMCMessage> messageslist) {
+        for (IMCMessage message : messageslist) {
+            if (message.key.equalsIgnoreCase("unSafeTPBlock") && message.isStringMessage()) {
+                String blockname = message.getStringValue();
+                LibIlly.instance.listunsafe.add(BlockUtils.getBlockFromName(blockname));
+            }
         }
-        return instance;
     }
 
-    public void registerPosExecuter(String modid, PosExecuter executer) {
-        exRege.put(modid, executer);
-    }
-    
-    
-    
 }

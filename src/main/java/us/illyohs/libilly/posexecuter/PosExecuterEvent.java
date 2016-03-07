@@ -20,7 +20,6 @@ package us.illyohs.libilly.posexecuter;
 
 import us.illyohs.libilly.util.ExePos;
 
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 
 import net.minecraftforge.fml.common.eventhandler.Event;

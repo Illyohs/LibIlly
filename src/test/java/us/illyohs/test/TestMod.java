@@ -18,8 +18,6 @@
  */
 package us.illyohs.test;
 
-import us.illyohs.libilly.posexecuter.ExecuterHandler;
-
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

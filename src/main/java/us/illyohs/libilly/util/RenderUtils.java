@@ -28,8 +28,8 @@ package us.illyohs.libilly.util;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+
 import net.minecraftforge.fml.client.FMLClientHandler;
 
 public class RenderUtils {

@@ -22,7 +22,6 @@ import us.illyohs.libilly.posexecuter.IExecuterRenderer;
 import us.illyohs.libilly.posexecuter.PosExecuter;
 import us.illyohs.libilly.util.ExePos;
 
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
 import net.minecraftforge.fml.relauncher.Side;

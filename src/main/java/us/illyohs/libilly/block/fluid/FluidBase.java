@@ -19,6 +19,7 @@
 package us.illyohs.libilly.block.fluid;
 
 import net.minecraft.util.ResourceLocation;
+
 import net.minecraftforge.fluids.Fluid;
 
 public class FluidBase extends Fluid {

@@ -24,8 +24,6 @@ import us.illyohs.libilly.util.ExePos;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
 //@PosExeInfo(modId = "TestMod")

@@ -18,10 +18,20 @@
  */
 package us.illyohs.libilly.internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import us.illyohs.libilly.internal.handler.IMCHandler;
 import us.illyohs.libilly.posexecuter.ExecuterHandler;
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInterModComms.IMCEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -39,8 +49,23 @@ public class LibIlly {
     public static final String VERSION  = "@VERSION@";
     public static final String UPDOOTURL = "";
     
+    public List<Block> listunsafe = new ArrayList<Block>();
+    
+    @Instance(MOD_ID)
+    public static LibIlly instance;
+    
+    /**
+     * 
+     */
+    public LibIlly() {
+        listunsafe.add(Blocks.lava);
+        listunsafe.add(Blocks.flowing_lava);
+        listunsafe.add(Blocks.fire);
+        listunsafe.add(Blocks.cactus);
+    }
     ExecuterHandler executerHandler;
 
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         event.getModMetadata().modId = LibIlly.MOD_ID;
         event.getModMetadata().name = LibIlly.MOD_NAME;
@@ -48,13 +73,19 @@ public class LibIlly {
 
     }
 
+    @EventHandler
     public void init(FMLInitializationEvent event) {
 
     }
 
+    @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        executerHandler = new ExecuterHandler();
+//        executerHandler = new ExecuterHandler();
 
+    }
+    
+    public void interComeGet(IMCEvent event) {
+        IMCHandler.processMessages(event.getMessages());
     }
 
 }
