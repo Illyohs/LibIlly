@@ -27,8 +27,8 @@ package us.illyohs.libilly.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockUtils {
@@ -47,13 +47,13 @@ public class BlockUtils {
         } 
     }
     
-    public static void replaceBlockWithSound(World world, BlockPos pos, String sound, int volume, int pitch, Block target, Block replacement) {
-        Block origin = world.getBlockState(pos).getBlock();
-        if (origin == target) {
-            world.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), sound, volume, pitch);
-            world.setBlockState(pos, replacement.getDefaultState());            
-        }      
-    }
+//    public static void replaceBlockWithSound(World world, BlockPos pos, String sound, int volume, int pitch, Block target, Block replacement) {
+//        Block origin = world.getBlockState(pos).getBlock();
+//        if (origin == target) {
+//            world.playSoundEffect(pos.getX(), pos.getY(), pos.getZ(), sound, volume, pitch);
+//            world.setBlockState(pos, replacement.getDefaultState());
+//        }
+//    }
    
     /**
      * 
@@ -66,13 +66,13 @@ public class BlockUtils {
      * @param target
      * @param replacement
      */
-    public static void replaceBlockWithSoundPlayer(EntityPlayer player,  World world, BlockPos pos, String sound, int volume, int pitch, Block target, Block replacement) {
-        Block origin = world.getBlockState(pos).getBlock();
-        if (origin == target) {
-            player.worldObj.playSoundAtEntity(player, sound, volume, pitch);
-            world.setBlockState(pos, replacement.getDefaultState());            
-        }      
-    }
+//    public static void replaceBlockWithSoundPlayer(EntityPlayer player, World world, BlockPos pos, String sound, int volume, int pitch, Block target, Block replacement) {
+//        Block origin = world.getBlockState(pos).getBlock();
+//        if (origin == target) {
+//            player.worldObj.playSoundAtEntity(player, sound, volume, pitch);
+//            world.setBlockState(pos, replacement.getDefaultState());
+//        }
+//    }
     
     
     

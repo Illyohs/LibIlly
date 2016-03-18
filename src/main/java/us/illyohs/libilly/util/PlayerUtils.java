@@ -18,13 +18,14 @@
  */
 package us.illyohs.libilly.util;
 
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import us.illyohs.libilly.internal.LibIlly;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.ChatComponentText;
+
 import net.minecraft.util.EnumFacing;
 
 public class PlayerUtils {
@@ -34,7 +35,7 @@ public class PlayerUtils {
     }
 
     public static void teleportPlayer(EntityPlayer player, BlockPos pos, int dem) {
-        player.travelToDimension(dem);
+        player.changeDimension(dem);
         teleportPlayer(player, pos);
     }
 
@@ -56,11 +57,11 @@ public class PlayerUtils {
                 }
             }
         }
-        player.addChatComponentMessage(new ChatComponentText(message));
+        player.addChatComponentMessage(new TextComponentString(message));
     }
     
     public static void safeTeleportPlayer(EntityPlayer player, EntityPlayer playerMessager, BlockPos pos, int dem, String message) {
-        player.travelToDimension(dem);
+        player.changeDimension(dem);
         int maxWorldHight = player.getEntityWorld().getHeight();
 
         for (int tries = 0; tries < 100; tries++) {
@@ -78,7 +79,7 @@ public class PlayerUtils {
                 }
             }
         }
-        player.addChatComponentMessage(new ChatComponentText(message));
+        player.addChatComponentMessage(new TextComponentString(message));
     }
 
 }

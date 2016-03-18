@@ -21,8 +21,11 @@ package us.illyohs.libilly.block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
+
+import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class AirBlockBase extends BlockBase {
@@ -34,11 +37,10 @@ public class AirBlockBase extends BlockBase {
      * @param resistance
      * @param light
      * @param tick
-     * @param isBlockAir
      * @param tab
      */
     public AirBlockBase(Material material, String name, float hardness, float resistance, float light, boolean tick,
-                        boolean isBlockAir, CreativeTabs tab) {
+                        CreativeTabs tab) {
         super(material, name, hardness, resistance, light, tick, tab);
     }
 
@@ -54,10 +56,18 @@ public class AirBlockBase extends BlockBase {
     public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
         return null;
     }
-    
+
     @Override
-    public boolean isOpaqueCube() {
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.INVISIBLE;
+    }
+
+    @Override
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
+    public boolean isReplaceable(IBlockAccess worldIn, BlockPos pos) {
+        return true;
+    }
 }
