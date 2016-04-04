@@ -18,9 +18,9 @@
  */
 package us.illyohs.libilly.posexecuter;
 
-import java.util.HashMap;
-
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.HashMap;
 
 @Deprecated
 public class ExecuterHandler {

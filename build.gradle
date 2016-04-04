@@ -49,10 +49,9 @@ group= "${config.group}"
 archivesBaseName = "${config.name}"
 
 minecraft {
-
+    version = "${config.mc_version}-${config.forge_version}"
     runDir = "run"
     mappings = "${config.mappings}"
-	version = "${config.mc_version}-${config.forge_version}"
 
 
     replaceIn "internal/LibIlly.java"

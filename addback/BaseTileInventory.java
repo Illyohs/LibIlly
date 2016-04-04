@@ -1,4 +1,4 @@
-package us.illyohs.libilly.block.tile;
+package us.illyohs.libilly.tile;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
